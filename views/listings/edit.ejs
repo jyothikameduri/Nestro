@@ -1,0 +1,76 @@
+<% layout("/layouts/boilerplate") -%>
+<body>
+  <div class="form-container">
+    <form method="POST" action="/listings/<%= listing._id %>?_method=PUT" class="listing-form needs-validation" novalidate enctype="multipart/form-data">
+      <h2 class="form-title">Edit Your Listing</h2>
+
+      <div class="form-group">
+        <label>Title</label>
+        <input name="listing[title]" type="text" value="<%= listing.title %>" required />
+        <div class="invalid-feedback"> <!-- if not given anything then -->
+          Please provide a title.
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Description</label>
+        <textarea name="listing[description]" rows="3" required><%= listing.description %></textarea>
+        <div class="invalid-feedback">
+          Please provide a description.
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Upload image</label>
+        <input name="listing[image]" 
+               type="file"
+        />
+      </div>
+
+            <div class="form-group">
+        <label for="category">Category</label>
+        <select name="listing[category]" id="category" class="form-control" required>
+          <option value="">--Select a Category--</option>
+          <option value="Trending">Trending</option>
+          <option value="Rooms">Rooms</option>
+          <option value="City">City</option>
+          <option value="Mountains">Mountains</option>
+          <option value="Castles">Castles</option>
+          <option value="Amazing Pools">Amazing Pools</option>
+          <option value="Camps">Camps</option>
+          <option value="Farms">Farms</option>
+          <option value="Arctic">Arctic</option>
+        </select>
+        <div class="invalid-feedback">
+          Please select a category.
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <label>Price </label>
+        <input name="listing[price]" type="text" value="<%= listing.price %>" required />
+        <div class="invalid-feedback">
+          Please enter a price.
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Location</label>
+        <input name="listing[location]" type="text" value="<%= listing.location %>" required />
+        <div class="invalid-feedback">
+          Please enter a location.
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Country</label>
+        <input name="listing[country]" type="text" value="<%= listing.country %>" required />
+        <div class="invalid-feedback">
+          Please enter a country.
+        </div>
+      </div>
+
+      <button class="btn_new" type="submit">Update</button>
+    </form>
+  </div>
+</body>

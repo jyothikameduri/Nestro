@@ -1,0 +1,75 @@
+<% layout("/layouts/boilerplate") -%>
+<body>
+  <div class="form-container">
+    <form method="POST" action="/listings" class="listing-form needs-validation" novalidate enctype="multipart/form-data"> <!-- novalidate - its compulsory to write this , it makes red sighn if there is nothing given (using bootstrap)-->
+      <h2 class="form-title">Create a Listing</h2>
+
+      <div class="form-group">
+        <label>Title</label>
+        <input name="listing[title]" class="form-control" placeholder="e.g. Cozy beach house" type="text" required />
+         <div class="invalid-feedback"> <!-- if not given anything then -->
+          Please provide a title.
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Description</label>
+        <textarea name="listing[description]" class="form-control" placeholder="Describe your place" rows="3" required></textarea>
+        <div class="invalid-feedback">
+          Please provide a description.
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="image" class="form-label">Upload Image </label>
+        <input name="listing[image]" class="form-control" type="file" required/>
+         <!-- instead of file if we are using urls means -> type should be changed from url to text because never mind if the user did not gave url , if we wrote url then defaultly this field requires the url it shows not valid if -->
+      </div>
+
+      <div class="form-group">
+        <label for="category">Category</label>
+        <select name="listing[category]" id="category" class="form-control" required>
+          <option value="">--Select a Category--</option>
+          <option value="Trending">Trending</option>
+          <option value="Rooms">Rooms</option>
+          <option value="City">City</option>
+          <option value="Mountains">Mountains</option>
+          <option value="Castles">Castles</option>
+          <option value="Amazing Pools">Amazing Pools</option>
+          <option value="Camps">Camps</option>
+          <option value="Farms">Farms</option>
+          <option value="Arctic">Arctic</option>
+        </select>
+        <div class="invalid-feedback">
+          Please select a category.
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Price</label>
+        <input name="listing[price]" class="form-control" placeholder="e.g. 150" type="text" required />
+        <div class="invalid-feedback">
+          Please enter a price.
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Location</label>
+        <input name="listing[location]" class="form-control" placeholder="e.g. Goa" type="text" required />
+        <div class="invalid-feedback">
+          Please enter a location.
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Country</label>
+        <input name="listing[country]" class="form-control" placeholder="e.g. India" type="text" required />
+        <div class="invalid-feedback">
+          Please enter a country.
+        </div>
+      </div>
+
+      <button class="btn_new" type="submit">Submit</button>
+    </form>
+  </div>
+</body>
