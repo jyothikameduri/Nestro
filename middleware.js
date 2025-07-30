@@ -8,10 +8,10 @@ module.exports.isLoggedIn = (req, res, next) => {
   if (!req.isAuthenticated()) {
     // req.session.redirectUrl = req.originalUrl;
     if (req.method === "GET") {
-      // ✅ Safe to remember
+      // Safe to remember
       req.session.redirectUrl = req.originalUrl;
     } else if (req.method === "POST" || req.method === "DELETE") {
-      // ✅ Manually redirect to the SHOW page of the listing
+      // Manually redirect to the SHOW page of the listing
       const listingId = req.params.id; // This works if your route contains :id
       if (listingId) {
         req.session.redirectUrl = `/listings/${listingId}`;
